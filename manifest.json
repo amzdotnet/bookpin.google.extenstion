@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Screenshot Extension",
+  "version": "1.0",
+  "permissions": ["storage", "tabs", "activeTab"],
+  "host_permissions": ["http://localhost:5118/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["link.html", "link.js"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Screenshot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    img {
+      max-width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Dropdown -->
+  <div
+    style="display: flex; align-items: flex-start; gap: 24px; width: 100%; font-family: 'Segoe UI', Tahoma, sans-serif;">
+
+    <!-- Left side: Screenshot/Image -->
+    <div id="shot"
+      style="flex: 8; text-align: center; background: #f9fafb; padding: 16px; border-radius: 16px; box-shadow: inset 0 0 10px rgba(0,0,0,0.05);">
+      <!-- <img id="screenshot" src="https://via.placeholder.com/600x400" alt="Screenshot"
+        style="max-width: 100%; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.12);"> -->
+      <img src="https://via.placeholder.com/600x400" alt="Screenshot"
+        style="max-width: 100%; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.12);">
+    </div>
+
+    <!-- Right side: Form -->
+    <div
+      style="flex: 2; background: #ffffff; padding: 28px 24px; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.08);">
+
+      <!-- Heading -->
+      <h3
+        style="margin-bottom: 20px; font-size: 18px; font-weight: 700; color: #2c3e50; border-bottom: 2px solid #f0f0f0; padding-bottom: 10px;">
+        User Tag
+      </h3>
+
+      <!-- Tag Selection -->
+      <div style="margin-bottom: 18px;">
+        <label for="tags" style="display: block; font-weight: 600; margin-bottom: 6px; font-size: 14px; color: #444;">
+          Select Tag
+        </label>
+        <select id="tags"
+          style="width: 100%; padding: 12px; border-radius: 10px; border: 1px solid #d1d5db; font-size: 14px; transition: all 0.2s; outline: none;">
+          <option value="">Loading...</option>
+        </select>
+      </div>
+
+      <!-- Name Field -->
+      <div style="margin-bottom: 18px;">
+        <label for="name" style="display: block; font-weight: 600; margin-bottom: 6px; font-size: 14px; color: #444;">
+          Name
+        </label>
+        <input type="text" id="name" placeholder="Enter your name"
+          style="width: 95%; padding: 12px; border: 1px solid #d1d5db; border-radius: 10px; font-size: 14px; outline: none; transition: border 0.3s;" />
+      </div>
+
+      <!-- Description -->
+      <div style="margin-bottom: 18px;">
+        <label for="message"
+          style="display: block; font-weight: 600; margin-bottom: 6px; font-size: 14px; color: #444;">
+          Description
+        </label>
+        <textarea id="message" placeholder="Enter your message"
+          style="width: 95%; height: 120px; padding: 12px; border: 1px solid #d1d5db; border-radius: 10px; font-size: 14px; resize: vertical; outline: none; transition: border 0.3s;"></textarea>
+      </div>
+
+      <!-- Submit Button -->
+      <div>
+        <button id="submitBtn"
+          style="background: linear-gradient(135deg, #4CAF50, #2e8b57); color: #fff; border: none; padding: 12px 20px; border-radius: 10px; cursor: pointer; font-size: 15px; font-weight: 600; width: 100%; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: all 0.3s ">
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- <script>
+    // Small enhancement: focus border effect
+    document.querySelectorAll("input, textarea, select").forEach(el => {
+      el.addEventListener("focus", () => el.style.border = "1px solid #4CAF50");
+      el.addEventListener("blur", () => el.style.border = "1px solid #d1d5db");
+    });
+
+    // Button hover effect
+    const btn = document.querySelector("button");
+    btn.addEventListener("mouseover", () => btn.style.background = "linear-gradient(135deg, #45a049, #246b44)");
+    btn.addEventListener("mouseout", () => btn.style.background = "linear-gradient(135deg, #4CAF50, #2e8b57)");
+
+  </script> -->
+
+
+  <script src="screenshot.js"></script>
+</body>
+
+</html>

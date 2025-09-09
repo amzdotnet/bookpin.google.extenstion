@@ -1,0 +1,122 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Link & Screenshot</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 10px; }
+    button { margin: 5px; padding: 10px 15px; font-size: 14px; }
+  </style>
+</head>
+<body>
+  <button id="copyLink">Copy Link</button>
+  <button id="screenshot">Take Screenshot</button>
+  <script src="popup.js"></script>
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login — Screenshot Uploader</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root { --primary:#2563eb; --text:#0f172a; --muted:#64748b; --bg:#f8fafc; --border:#e2e8f0; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: var(--bg); color: var(--text); width: 320px; }
+    .wrap { padding:16px; }
+    h2 { margin:0 0 12px; font-size: 18px; }
+    .card { background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px; box-shadow: 0 1px 4px rgba(0,0,0,.04); }
+    .field { margin-bottom:10px; }
+    label { display:block; font-size:12px; color:var(--muted); margin-bottom:6px; }
+    .input-row { position:relative; }
+    input[type="text"], input[type="password"] {
+      width:100%; padding:10px 12px; border:1px solid var(--border); border-radius:10px; outline:none;
+    }
+    .toggle-pass {
+      position:absolute; right:8px; top:50%; transform: translateY(-50%); border:none; background:transparent; cursor:pointer; font-size:12px; color:var(--muted);
+    }
+    .btn {
+      width:100%; padding:10px 12px; border:none; border-radius:10px; background:var(--primary); color:#fff; font-weight:600; cursor:pointer;
+    }
+    .btn:disabled { opacity:.7; cursor:not-allowed; }
+    .muted { color:var(--muted); font-size:12px; }
+    .row { display:flex; gap:8px; align-items:center; justify-content:space-between; margin-top:8px; }
+    .error { color:#b91c1c; font-size:12px; min-height:16px; margin-top:6px; }
+    .success { color:#15803d; font-size:12px; }
+    .loader {
+      display:none; margin:10px 0; width:100%; text-align:center; font-size:12px; color:var(--muted);
+    }
+    .hr { height:1px; background:var(--border); margin:12px 0; border:0; }
+    .welcome { font-size:14px; }
+    .tag { display:inline-block; background:#eef2ff; border:1px solid #dbeafe; color:#1e3a8a; padding:2px 8px; border-radius:999px; font-size:11px; margin-top:6px; }
+    button { margin: 5px 0; width: 100%; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- LOGIN VIEW -->
+    <div id="loginDiv" class="card">
+      <h2>Sign in</h2>
+      <div class="field">
+        <label for="username">Email</label>
+        <div class="input-row">
+          <input id="username" type="text" placeholder="e.g. shahryar" autocomplete="username" required />
+        </div>
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <div class="input-row">
+          <input id="password" type="password" placeholder="••••••••" autocomplete="current-password" required />
+          <!-- <button id="togglePass" class="toggle-pass" type="button">Show</button> -->
+        </div>
+      </div>
+
+      <div class="row">
+        <label class="muted" style="display:flex;align-items:center;gap:6px;">
+          <input id="rememberMe" type="checkbox" checked /> Stay signed in
+        </label>
+        <span class="muted">v1.0</span>
+      </div>
+
+      <div id="message" class="error"></div>
+      <div id="loader" class="loader">Signing you in…</div>
+
+      <button id="loginBtn" class="btn" type="button">Login</button>
+    </div>
+
+    <!-- LOGGED-IN VIEW -->
+    <div id="loggedInDiv" class="card" style="display:none;">
+      <h2>Welcome</h2>
+      <p class="welcome">
+        You’re signed in. <span class="tag">Ready to upload</span>
+      </p>
+ 
+      <hr class="hr" />
+                <button id="copyLink" class="btn">Copy Link</button>
+    <button id="screenshot" class="btn">Take Screenshot</button>
+      <button id="logoutBtn" class="btn" type="button">Logout</button>
+      <p id="okMsg" class="success" style="margin-top:8px;"></p>
+    </div>
+  </div>
+
+  <!-- <script>
+    // show/hide password
+    (function(){
+      const pass = document.getElementById('password');
+      const btn  = document.getElementById('togglePass');
+      btn.addEventListener('click', () => {
+        const isPwd = pass.type === 'password';
+        pass.type = isPwd ? 'text' : 'password';
+        btn.textContent = isPwd ? 'Hide' : 'Show';
+      });
+    })();
+  </script> -->
+
+  <!-- your popup.js file (logic you already have) -->
+  <script src="popup.js"></script>
+</body>
+</html>
