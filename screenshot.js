@@ -56,22 +56,25 @@ document.addEventListener("DOMContentLoaded", async () => {
   const dropdown = document.getElementById("tags");
 
   try {
-    debugger
-        // token get karo storage se
-const { accessToken } = await chrome.storage.local.get("accessToken");
+    debugger;
+    // token get karo storage se
+    const { accessToken } = await chrome.storage.local.get("accessToken");
 
-if (!accessToken) {
-  alert("🚨 No token found. Please login first!");
-  return;
-}
+    if (!accessToken) {
+      alert("🚨 No token found. Please login first!");
+      return;
+    }
 
-const response = await fetch("http://localhost:5118/api/tag/get-all-active-tag", {
-  method: "GET",
-  headers: {
-    "Content-Type": "application/json",
-    "Authorization": `Bearer ${accessToken}`  // ✅ yahan token add
-  }
-});
+    const response = await fetch(
+      "http://localhost:5118/api/tag/get-all-active-tag",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`, // ✅ yahan token add
+        },
+      }
+    );
 
     if (response.ok) {
       const data = await response.json();
@@ -142,19 +145,19 @@ async function handleSubmit() {
 
   try {
     // token get karo storage se
- const { accessToken } = await chrome.storage.local.get("accessToken");
+    const { accessToken } = await chrome.storage.local.get("accessToken");
 
-if (!accessToken) {
-  alert("🚨 No token found. Please login first!");
-  return;
-}
+    if (!accessToken) {
+      alert("🚨 No token found. Please login first!");
+      return;
+    }
     const response = await fetch(
       "http://localhost:5118/api/userTag/post-user-tag",
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${accessToken}` // 👈 token add here
+          Authorization: `Bearer ${accessToken}`, // 👈 token add here
         },
         body: JSON.stringify(payload),
       }

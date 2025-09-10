@@ -9,11 +9,20 @@ document.addEventListener("DOMContentLoaded", async () => {
   // ✅ fetch tags from your API
   const dropdown = document.getElementById("tags");
   try {
+    const { accessToken } = await chrome.storage.local.get("accessToken");
+    debugger;
+    if (!accessToken) {
+      alert("🚨 No token found. Please login first!");
+      return;
+    }
     const response = await fetch(
       "http://localhost:5118/api/tag/get-all-active-tag",
       {
         method: "GET",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`, // ✅ yahan token add
+        },
       }
     );
 
@@ -39,7 +48,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 async function handleSubmit() {
   debugger;
-  
+
   var link = document.getElementById("pageLink").textContent;
   var tagID = document.getElementById("tags").value;
   var name = document.getElementById("name").value;
@@ -54,13 +63,21 @@ async function handleSubmit() {
   };
 
   try {
+    const { accessToken } = await chrome.storage.local.get("accessToken");
+    if (!accessToken) {
+      alert("🚨 No token found. Please login first!");
+      return;
+    }
     const response = await fetch(
       "http://localhost:5118/api/userTag/post-user-tag",
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`, // 👈 token add here
         },
+        body: JSON.stringify(payload),
+        Authorization: `Bearer ${accessToken}`, // 👈 token add here
         body: JSON.stringify(payload),
       }
     );
